@@ -26,7 +26,7 @@ apiMock.onGet("repositories").reply(200, [
     title: "Desafio React Native",
     url: "https://github.com/josepholiveira",
     techs: ["React Native", "Node.js"],
-    likes: 0,
+    likes: 0
   },
 ]);
 
@@ -56,7 +56,7 @@ describe("Likes", () => {
         title: "Desafio React Native",
         url: "https://github.com/josepholiveira",
         techs: ["React Native", "Node.js"],
-        likes: 1,
+        likes: 1
       });
 
     await actWait();
@@ -65,7 +65,7 @@ describe("Likes", () => {
 
     await actWait();
 
-    expect(getByTestId(`repository-likes-${repositoryId}`)).toHaveTextContent("1 curtida");
+    expect(getByTestId(`repository-likes-${repositoryId}`)).toHaveTextContent("1 curtidas");
 
     apiMock
       .onPost(`repositories/${repositoryId}/like`)
@@ -74,7 +74,7 @@ describe("Likes", () => {
         title: "Desafio React Native",
         url: "https://github.com/josepholiveira",
         techs: ["React Native", "Node.js"],
-        likes: 2,
+        likes: 2
       });
 
     fireEvent.press(getByTestId(`like-button-${repositoryId}`));
